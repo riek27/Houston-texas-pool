@@ -1,708 +1,155 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advent Homes | Luxury Pool Builders Houston</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Fonts: Playfair Display (Serif) & Inter (Sans) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Icons: Phosphor Icons -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        navy: {
-                            900: '#0E1A26',
-                            800: '#162431',
-                        },
-                        charcoal: '#2A2A2A',
-                        sand: '#E6E2DD',
-                        aqua: '#008C9E',
-                        gold: '#C5A059',
-                        goldHover: '#D4AF6A',
-                    },
-                    fontFamily: {
-                        serif: ['"Playfair Display"', 'serif'],
-                        sans: ['"Inter"', 'sans-serif'],
-                    },
-                    backgroundImage: {
-                        'hero-pattern': "url('https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=2670&auto=format&fit=crop')",
-                        'cta-pattern': "url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=2670&auto=format&fit=crop')",
-                    },
-                    spacing: {
-                        '128': '32rem',
-                    },
-                    animation: {
-                        'fade-in-up': 'fadeInUp 1s ease-out forwards',
-                        'typing': 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite',
-                    },
-                    keyframes: {
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        typing: {
-                            '0%': { width: '0' },
-                            '100%': { width: '100%' },
-                        },
-                        'blink-caret': {
-                            'from, to': { borderColor: 'transparent' },
-                            '50%': { borderColor: '#C5A059' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        /* Custom Styles for Ultra-Luxury Feel */
-        body {
-            background-color: #FAFAFA;
-            color: #0E1A26;
-            overflow-x: hidden;
-        }
-
-        /* Glassmorphism */
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-        }
-
-        .glass-input {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            transition: all 0.3s ease;
-        }
-
-        .glass-input:focus {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: #C5A059;
-            outline: none;
-        }
-
-        .glass-input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        /* Text Reveal Animation Classes */
-        .reveal-text {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .reveal-text.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Image Hover Zoom */
-        .img-zoom-container {
-            overflow: hidden;
-        }
-        .img-zoom-container img {
-            transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .img-zoom-container:hover img {
-            transform: scale(1.05);
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #C5A059;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #0E1A26;
-        }
-
-        /* Floating Label Logic */
-        .floating-input:focus ~ label,
-        .floating-input:not(:placeholder-shown) ~ label {
-            top: -10px;
-            left: 10px;
-            font-size: 0.75rem;
-            color: #C5A059;
-            background-color: #0E1A26; /* Match dark overlay */
-            padding: 0 4px;
-        }
-
-        /* Mobile Menu Overlay */
-        #mobile-menu {
-            transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advent Homes | Luxury Pool Builders Houston</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
-<body class="antialiased">
+<body>
 
-    <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6 px-6 md:px-12">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <!-- Logo -->
-            <a href="#" class="text-2xl md:text-3xl font-serif font-bold text-white tracking-widest z-50 relative">
-                ADVENT<span class="text-gold">.</span>
-            </a>
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">ADVENT<span>.</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      <div class="mobile-toggle" id="mobileToggle">
+        <i class="ph ph-list"></i>
+      </div>
+    </div>
+  </nav>
 
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-12 items-center">
-                <a href="#about" class="text-white text-sm uppercase tracking-widest hover:text-gold transition-colors duration-300">About</a>
-                <a href="#services" class="text-white text-sm uppercase tracking-widest hover:text-gold transition-colors duration-300">Services</a>
-                <a href="#portfolio" class="text-white text-sm uppercase tracking-widest hover:text-gold transition-colors duration-300">Portfolio</a>
-                <a href="#contact" class="px-6 py-3 border border-gold text-gold text-sm uppercase tracking-widest hover:bg-gold hover:text-white transition-all duration-300">Contact</a>
-            </div>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=2670&auto=format&fit=crop" alt="Luxury Pool" class="hero-bg">
+    <div class="hero-overlay"></div>
+    <div class="hero-content reveal">
+      <h1 class="hero-title">Houston's Premier Pool Builders</h1>
+      <h2 class="hero-subtitle"><span id="typing-text"></span><span class="typing-cursor">&nbsp;</span></h2>
+      <div style="margin-top: 2rem;">
+        <a href="contact.html" class="btn-primary">Start Your Project</a>
+      </div>
+    </div>
+  </section>
 
-            <!-- Mobile Toggle -->
-            <button id="menu-btn" class="md:hidden text-white z-50 focus:outline-none">
-                <i class="ph ph-list text-3xl"></i>
-            </button>
+  <!-- INTRO / TRUST -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="reveal" style="text-align: center; max-width: 700px; margin: 0 auto 4rem;">
+        <span class="text-gold" style="text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem;">Why Advent Homes</span>
+        <h2 style="font-size: 2.5rem; margin-top: 1rem; margin-bottom: 1.5rem;">Redefining Outdoor Luxury</h2>
+        <p style="color: #666; font-weight: 300;">We don't just dig holes; we sculpt landscapes. With over 15 years of experience in Houston's high-end market, we deliver architectural precision and white-glove service.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <i class="ph ph-pencil-ruler service-icon"></i>
+          <h3>Custom Design</h3>
+          <p style="margin-top: 1rem; color: #666; font-size: 0.95rem;">Bespoke blueprints tailored to your estate's unique geometry.</p>
         </div>
-
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 bg-navy-900 flex flex-col justify-center items-center space-y-8 transform translate-x-full md:hidden">
-            <a href="#about" class="mobile-link text-3xl font-serif text-white hover:text-gold">About</a>
-            <a href="#services" class="mobile-link text-3xl font-serif text-white hover:text-gold">Services</a>
-            <a href="#portfolio" class="mobile-link text-3xl font-serif text-white hover:text-gold">Portfolio</a>
-            <a href="#contact" class="mobile-link text-3xl font-serif text-gold">Contact Us</a>
+        <div class="service-card reveal" style="transition-delay: 0.1s;">
+          <i class="ph ph-hard-hat service-icon"></i>
+          <h3>Master Craftsmanship</h3>
+          <p style="margin-top: 1rem; color: #666; font-size: 0.95rem;">Precision construction using the world's finest materials.</p>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="relative h-screen w-full overflow-hidden flex items-center justify-center md:justify-start">
-        <!-- Background Image with Parallax -->
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=2670&auto=format&fit=crop" alt="Luxury Pool" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-r from-navy-900/90 via-navy-900/60 to-transparent"></div>
+        <div class="service-card reveal" style="transition-delay: 0.2s;">
+          <i class="ph ph-clock service-icon"></i>
+          <h3>On-Time Delivery</h3>
+          <p style="margin-top: 1rem; color: #666; font-size: 0.95rem;">Respecting your timeline with military-grade project management.</p>
         </div>
+      </div>
 
-        <div class="relative z-10 container mx-auto px-6 md:px-12 h-full flex flex-col md:flex-row items-center">
-            
-            <!-- Hero Text (Left) -->
-            <div class="w-full md:w-1/2 text-white space-y-6 pt-20 md:pt-0">
-                <div class="h-12 md:h-16 overflow-hidden">
-                    <h1 id="typing-text" class="text-4xl md:text-6xl lg:text-7xl font-serif font-medium tracking-wide border-r-2 border-gold pr-2 inline-block">
-                        <!-- JS will type here -->
-                    </h1>
-                </div>
-                
-                <p class="text-lg md:text-xl text-gray-300 font-light max-w-lg leading-relaxed animate-fade-in-up opacity-0" style="animation-delay: 2s; animation-fill-mode: forwards;">
-                    We create extraordinary outdoor living spaces for Houston's most discerning homeowners.
-                </p>
-                
-                <div class="pt-8 flex items-center space-x-4 animate-fade-in-up opacity-0" style="animation-delay: 2.5s; animation-fill-mode: forwards;">
-                    <div class="h-[1px] w-12 bg-gold"></div>
-                    <span class="text-gold uppercase tracking-widest text-sm">Est. Houston, TX</span>
-                </div>
-            </div>
+      <div style="text-align: center; margin-top: 4rem;">
+        <a href="about.html" class="btn-outline">Learn More About Us</a>
+      </div>
+    </div>
+  </section>
 
-            <!-- Hero Form (Right - Glassmorphism) -->
-            <div class="w-full md:w-1/2 flex justify-center md:justify-end mt-12 md:mt-0">
-                <div class="glass-panel w-full max-w-md p-8 md:p-10 rounded-2xl">
-                    <h3 class="text-2xl font-serif text-white mb-6">Request Consultation</h3>
-                    <form class="space-y-6">
-                        <div class="relative">
-                            <input type="text" id="name" class="w-full bg-transparent border-b border-gray-500 py-3 text-white focus:border-gold outline-none transition-colors peer placeholder-transparent" placeholder="Name">
-                            <label for="name" class="absolute left-0 top-3 text-gray-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3 peer-focus:text-xs peer-focus:text-gold peer-not-placeholder-shown:-top-3 peer-not-placeholder-shown:text-xs">Full Name</label>
-                        </div>
-                        <div class="relative">
-                            <input type="tel" id="phone" class="w-full bg-transparent border-b border-gray-500 py-3 text-white focus:border-gold outline-none transition-colors peer placeholder-transparent" placeholder="Phone">
-                            <label for="phone" class="absolute left-0 top-3 text-gray-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3 peer-focus:text-xs peer-focus:text-gold peer-not-placeholder-shown:-top-3 peer-not-placeholder-shown:text-xs">Phone Number</label>
-                        </div>
-                        <div class="relative">
-                            <input type="email" id="email" class="w-full bg-transparent border-b border-gray-500 py-3 text-white focus:border-gold outline-none transition-colors peer placeholder-transparent" placeholder="Email">
-                            <label for="email" class="absolute left-0 top-3 text-gray-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3 peer-focus:text-xs peer-focus:text-gold peer-not-placeholder-shown:-top-3 peer-not-placeholder-shown:text-xs">Email Address</label>
-                        </div>
-                        <div class="relative">
-                            <textarea id="details" rows="2" class="w-full bg-transparent border-b border-gray-500 py-3 text-white focus:border-gold outline-none transition-colors peer placeholder-transparent resize-none" placeholder="Details"></textarea>
-                            <label for="details" class="absolute left-0 top-3 text-gray-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3 peer-focus:-top-3 peer-focus:text-xs peer-focus:text-gold peer-not-placeholder-shown:-top-3 peer-not-placeholder-shown:text-xs">Project Vision</label>
-                        </div>
-                        <button type="button" class="w-full bg-gradient-to-r from-gold to-goldHover text-white font-medium py-4 rounded-lg shadow-lg hover:shadow-gold/50 hover:scale-[1.02] transition-all duration-300 uppercase tracking-widest text-sm mt-4">
-                            Start Your Journey
-                        </button>
-                    </form>
-                </div>
-            </div>
+  <!-- FEATURED PROJECTS -->
+  <section class="section-padding" style="background-color: #f4f4f4;">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem;" class="reveal">
+        <div>
+          <h2 style="font-size: 2.5rem;">Featured Estates</h2>
         </div>
-    </header>
+        <a href="gallery.html" style="color: var(--color-navy); border-bottom: 1px solid var(--color-navy);">View Full Gallery</a>
+      </div>
 
-    <!-- Trust Section -->
-    <section class="py-24 bg-white relative">
-        <div class="container mx-auto px-6 md:px-12">
-            <div class="text-center mb-16 reveal-text">
-                <span class="text-gold uppercase tracking-[0.2em] text-sm font-semibold">Why Advent Homes</span>
-                <h2 class="text-4xl md:text-5xl font-serif text-navy-900 mt-4">Houston's Premier Pool Design & Build Firm</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Card 1 -->
-                <div class="group p-8 border border-gray-100 hover:border-gold/30 hover:shadow-2xl hover:shadow-gray-200/50 transition-all duration-500 bg-white reveal-text">
-                    <i class="ph ph-pencil-ruler text-4xl text-navy-900 mb-6 group-hover:text-gold transition-colors"></i>
-                    <h3 class="text-xl font-serif text-navy-900 mb-3">Architectural Design</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Bespoke blueprints tailored to your estate's unique geometry and landscape.</p>
-                </div>
-                <!-- Card 2 -->
-                <div class="group p-8 border border-gray-100 hover:border-gold/30 hover:shadow-2xl hover:shadow-gray-200/50 transition-all duration-500 bg-white reveal-text" style="transition-delay: 100ms;">
-                    <i class="ph ph-hard-hat text-4xl text-navy-900 mb-6 group-hover:text-gold transition-colors"></i>
-                    <h3 class="text-xl font-serif text-navy-900 mb-3">White-Glove Build</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">A concierge construction experience with daily updates and pristine site management.</p>
-                </div>
-                <!-- Card 3 -->
-                <div class="group p-8 border border-gray-100 hover:border-gold/30 hover:shadow-2xl hover:shadow-gray-200/50 transition-all duration-500 bg-white reveal-text" style="transition-delay: 200ms;">
-                    <i class="ph ph-gem text-4xl text-navy-900 mb-6 group-hover:text-gold transition-colors"></i>
-                    <h3 class="text-xl font-serif text-navy-900 mb-3">Premium Materials</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Sourcing the world's finest stones, tiles, and finishes for enduring elegance.</p>
-                </div>
-                <!-- Card 4 -->
-                <div class="group p-8 border border-gray-100 hover:border-gold/30 hover:shadow-2xl hover:shadow-gray-200/50 transition-all duration-500 bg-white reveal-text" style="transition-delay: 300ms;">
-                    <i class="ph ph-clock text-4xl text-navy-900 mb-6 group-hover:text-gold transition-colors"></i>
-                    <h3 class="text-xl font-serif text-navy-900 mb-3">On-Time Delivery</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Respecting your timeline with military-grade precision and project management.</p>
-                </div>
-            </div>
+      <div class="gallery-grid">
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1600596542815-2a4d04774c13?q=80&w=2675&auto=format&fit=crop" alt="Pool Project">
+          <div class="gallery-overlay">
+            <h3 style="color: white;">The River Oaks Estate</h3>
+            <p style="color: var(--color-gold);">Infinity Edge</p>
+          </div>
         </div>
-    </section>
-
-    <!-- About Section (Editorial Layout) -->
-    <section id="about" class="py-24 bg-sand/20">
-        <div class="container mx-auto px-6 md:px-12">
-            <div class="flex flex-col lg:flex-row items-center gap-16">
-                <div class="w-full lg:w-1/2 reveal-text">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1600596542815-2a4d04774c13?q=80&w=2675&auto=format&fit=crop" alt="Modern Architecture" class="w-full h-[600px] object-cover shadow-2xl">
-                        <div class="absolute -bottom-10 -right-10 w-48 h-48 bg-navy-900 hidden md:flex flex-col justify-center items-center text-center p-6 shadow-xl">
-                            <span class="text-4xl font-serif text-gold">15+</span>
-                            <span class="text-white text-xs uppercase tracking-widest mt-2">Years of<br>Excellence</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full lg:w-1/2 space-y-8 reveal-text">
-                    <span class="text-gold uppercase tracking-[0.2em] text-sm font-semibold">Our Philosophy</span>
-                    <h2 class="text-4xl md:text-5xl font-serif text-navy-900 leading-tight">We Don't Just Build Pools.<br>We Curate Lifestyles.</h2>
-                    <div class="w-20 h-1 bg-navy-900"></div>
-                    <p class="text-gray-600 text-lg leading-relaxed font-light">
-                        At Advent Homes, we believe your backyard should be an extension of your home's soul. Rooted in Houston's dynamic landscape, we blend architectural rigor with artistic vision.
-                    </p>
-                    <p class="text-gray-600 text-lg leading-relaxed font-light">
-                        Every curve of the water, every stone laid, and every light positioned is a deliberate choice to create a sanctuary of tranquility and prestige.
-                    </p>
-                    <a href="#contact" class="inline-block border-b border-navy-900 text-navy-900 pb-1 uppercase tracking-widest text-sm hover:text-gold hover:border-gold transition-colors">Read Our Story</a>
-                </div>
-            </div>
+        <div class="gallery-item reveal" style="transition-delay: 0.1s;">
+          <img src="https://images.unsplash.com/photo-1599629954294-474592d7145e?q=80&w=2670&auto=format&fit=crop" alt="Pool Project">
+          <div class="gallery-overlay">
+            <h3 style="color: white;">Memorial Park Residence</h3>
+            <p style="color: var(--color-gold);">Resort Style</p>
+          </div>
         </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="py-24 bg-white">
-        <div class="container mx-auto px-6 md:px-12 mb-16 flex justify-between items-end reveal-text">
-            <div>
-                <span class="text-gold uppercase tracking-[0.2em] text-sm font-semibold">Selected Works</span>
-                <h2 class="text-4xl md:text-5xl font-serif text-navy-900 mt-4">The Collection</h2>
-            </div>
-            <a href="#" class="hidden md:block text-navy-900 hover:text-gold transition-colors text-sm uppercase tracking-widest border-b border-transparent hover:border-gold pb-1">View Full Portfolio</a>
+        <div class="gallery-item reveal" style="transition-delay: 0.2s;">
+          <img src="https://images.unsplash.com/photo-1572331165267-854da2b00dc1?q=80&w=2670&auto=format&fit=crop" alt="Pool Project">
+          <div class="gallery-overlay">
+            <h3 style="color: white;">The Heights Modern</h3>
+            <p style="color: var(--color-gold);">Geometric Lap</p>
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Masonry Grid -->
-        <div class="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Item 1 -->
-            <div class="group relative h-[500px] overflow-hidden cursor-pointer reveal-text">
-                <img src="https://images.unsplash.com/photo-1562778612-e1e0cda9915c?q=80&w=2670&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Pool 1">
-                <div class="absolute inset-0 bg-navy-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-                    <h3 class="text-white text-2xl font-serif translate-y-4 group-hover:translate-y-0 transition-transform duration-500">The River Oaks Estate</h3>
-                    <p class="text-gold text-sm uppercase tracking-widest mt-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Modern Infinity Edge</p>
-                </div>
-            </div>
-            <!-- Item 2 (Offset) -->
-            <div class="group relative h-[500px] overflow-hidden cursor-pointer reveal-text md:mt-24">
-                <img src="https://images.unsplash.com/photo-1599629954294-474592d7145e?q=80&w=2670&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Pool 2">
-                <div class="absolute inset-0 bg-navy-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-                    <h3 class="text-white text-2xl font-serif translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Memorial Park Residence</h3>
-                    <p class="text-gold text-sm uppercase tracking-widest mt-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Resort Style Lagoon</p>
-                </div>
-            </div>
-            <!-- Item 3 -->
-            <div class="group relative h-[500px] overflow-hidden cursor-pointer reveal-text">
-                <img src="https://images.unsplash.com/photo-1572331165267-854da2b00dc1?q=80&w=2670&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Pool 3">
-                <div class="absolute inset-0 bg-navy-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-                    <h3 class="text-white text-2xl font-serif translate-y-4 group-hover:translate-y-0 transition-transform duration-500">The Heights Modern</h3>
-                    <p class="text-gold text-sm uppercase tracking-widest mt-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Geometric Lap Pool</p>
-                </div>
-            </div>
-             <!-- Item 4 -->
-             <div class="group relative h-[500px] overflow-hidden cursor-pointer reveal-text md:mt-24">
-                <img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?q=80&w=2669&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Pool 4">
-                <div class="absolute inset-0 bg-navy-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-                    <h3 class="text-white text-2xl font-serif translate-y-4 group-hover:translate-y-0 transition-transform duration-500">West University Home</h3>
-                    <p class="text-gold text-sm uppercase tracking-widest mt-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Classic Mediterranean</p>
-                </div>
-            </div>
-             <!-- Item 5 -->
-             <div class="group relative h-[500px] overflow-hidden cursor-pointer reveal-text">
-                <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?q=80&w=2670&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Pool 5">
-                <div class="absolute inset-0 bg-navy-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-                    <h3 class="text-white text-2xl font-serif translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Sugar Land Estate</h3>
-                    <p class="text-gold text-sm uppercase tracking-widest mt-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Outdoor Kitchen & Spa</p>
-                </div>
-            </div>
-             <!-- Item 6 -->
-             <div class="group relative h-[500px] overflow-hidden cursor-pointer reveal-text md:mt-24">
-                <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2670&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Pool 6">
-                <div class="absolute inset-0 bg-navy-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-                    <h3 class="text-white text-2xl font-serif translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Katy Lakeside</h3>
-                    <p class="text-gold text-sm uppercase tracking-widest mt-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Natural Stone Grotto</p>
-                </div>
-            </div>
+  <!-- CTA SECTION -->
+  <section class="section-padding" style="background-color: var(--color-navy); color: white; text-align: center;">
+    <div class="container reveal">
+      <h2 style="font-size: 3rem; margin-bottom: 1.5rem;">Your Dream Backyard Awaits</h2>
+      <p style="margin-bottom: 2.5rem; opacity: 0.8; max-width: 600px; margin-left: auto; margin-right: auto;">Schedule your private design consultation today and experience the Advent standard.</p>
+      <a href="contact.html" class="btn-primary">Request Consultation</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4 class="logo" style="margin-bottom: 1rem;">ADVENT<span>.</span></h4>
+          <p style="font-size: 0.9rem; line-height: 1.8;">Redefining luxury outdoor living in Houston. Precision, elegance, and timeless design.</p>
         </div>
-        
-        <div class="mt-12 text-center md:hidden reveal-text">
-            <a href="#" class="inline-block border border-navy-900 text-navy-900 px-8 py-3 uppercase tracking-widest text-sm hover:bg-navy-900 hover:text-white transition-colors">View Full Portfolio</a>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
         </div>
-    </section>
-
-    <!-- Process Section -->
-    <section class="py-24 bg-navy-900 text-white">
-        <div class="container mx-auto px-6 md:px-12">
-            <div class="text-center mb-20 reveal-text">
-                <span class="text-gold uppercase tracking-[0.2em] text-sm font-semibold">The Experience</span>
-                <h2 class="text-4xl md:text-5xl font-serif mt-4">Our Seamless 4-Step Process</h2>
-            </div>
-
-            <div class="relative">
-                <!-- Connecting Line (Desktop) -->
-                <div class="hidden md:block absolute top-1/2 left-0 w-full h-[1px] bg-white/10 -translate-y-1/2 z-0"></div>
-
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
-                    <!-- Step 1 -->
-                    <div class="bg-navy-900 p-6 text-center reveal-text group">
-                        <div class="w-16 h-16 mx-auto bg-white/5 rounded-full flex items-center justify-center border border-gold/30 mb-6 group-hover:bg-gold group-hover:text-navy-900 transition-colors duration-300">
-                            <span class="text-xl font-serif font-bold">01</span>
-                        </div>
-                        <h3 class="text-xl font-serif mb-3">Consultation</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">We meet to understand your vision, lifestyle, and the unique character of your property.</p>
-                    </div>
-                    <!-- Step 2 -->
-                    <div class="bg-navy-900 p-6 text-center reveal-text group" style="transition-delay: 100ms;">
-                        <div class="w-16 h-16 mx-auto bg-white/5 rounded-full flex items-center justify-center border border-gold/30 mb-6 group-hover:bg-gold group-hover:text-navy-900 transition-colors duration-300">
-                            <span class="text-xl font-serif font-bold">02</span>
-                        </div>
-                        <h3 class="text-xl font-serif mb-3">Design & 3D</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">Our architects create photorealistic 3D renderings, allowing you to walk through your future oasis.</p>
-                    </div>
-                    <!-- Step 3 -->
-                    <div class="bg-navy-900 p-6 text-center reveal-text group" style="transition-delay: 200ms;">
-                        <div class="w-16 h-16 mx-auto bg-white/5 rounded-full flex items-center justify-center border border-gold/30 mb-6 group-hover:bg-gold group-hover:text-navy-900 transition-colors duration-300">
-                            <span class="text-xl font-serif font-bold">03</span>
-                        </div>
-                        <h3 class="text-xl font-serif mb-3">Construction</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">Precision engineering and white-glove construction bring the blueprints to life with zero stress.</p>
-                    </div>
-                    <!-- Step 4 -->
-                    <div class="bg-navy-900 p-6 text-center reveal-text group" style="transition-delay: 300ms;">
-                        <div class="w-16 h-16 mx-auto bg-white/5 rounded-full flex items-center justify-center border border-gold/30 mb-6 group-hover:bg-gold group-hover:text-navy-900 transition-colors duration-300">
-                            <span class="text-xl font-serif font-bold">04</span>
-                        </div>
-                        <h3 class="text-xl font-serif mb-3">The Reveal</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">The final walkthrough. We hand over the keys to your new sanctuary, ready for your first dip.</p>
-                    </div>
-                </div>
-            </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li>(713) 555-0123</li>
+            <li>design@adventhomes.com</li>
+            <li>Houston, Texas 77005</li>
+          </ul>
         </div>
-    </section>
+      </div>
+      <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; font-size: 0.8rem;">
+        &copy; 2026 Advent Homes. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
 
-    <!-- Services Teaser -->
-    <section id="services" class="py-24 bg-white">
-        <div class="container mx-auto px-6 md:px-12">
-            <div class="flex flex-col md:flex-row justify-between items-start mb-16 reveal-text">
-                <div>
-                    <span class="text-gold uppercase tracking-[0.2em] text-sm font-semibold">Expertise</span>
-                    <h2 class="text-4xl md:text-5xl font-serif text-navy-900 mt-4">Comprehensive Services</h2>
-                </div>
-            </div>
-            
-            <div class="space-y-12">
-                <!-- Service Item 1 -->
-                <div class="flex flex-col md:flex-row items-center gap-8 group reveal-text">
-                    <div class="w-full md:w-1/3 h-64 overflow-hidden img-zoom-container rounded-lg">
-                        <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?q=80&w=2670&auto=format&fit=crop" alt="Custom Design" class="w-full h-full object-cover">
-                    </div>
-                    <div class="w-full md:w-2/3">
-                        <h3 class="text-3xl font-serif text-navy-900 mb-4 group-hover:text-gold transition-colors">Custom Pool Design</h3>
-                        <p class="text-gray-600 mb-6 max-w-xl">From infinity edges to vanishing edge spas, we design pools that defy gravity and expectation. Every line is calculated for aesthetic perfection.</p>
-                        <ul class="flex space-x-4 text-sm text-gray-500 uppercase tracking-widest">
-                            <li class="flex items-center"><i class="ph-fill ph-check-circle text-gold mr-2"></i> Gunite</li>
-                            <li class="flex items-center"><i class="ph-fill ph-check-circle text-gold mr-2"></i> Fiberglass</li>
-                            <li class="flex items-center"><i class="ph-fill ph-check-circle text-gold mr-2"></i> Saltwater</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Service Item 2 -->
-                <div class="flex flex-col md:flex-row-reverse items-center gap-8 group reveal-text">
-                    <div class="w-full md:w-1/3 h-64 overflow-hidden img-zoom-container rounded-lg">
-                        <img src="https://images.unsplash.com/photo-1556910103-1c02745a30bf?q=80&w=2670&auto=format&fit=crop" alt="Outdoor Living" class="w-full h-full object-cover">
-                    </div>
-                    <div class="w-full md:w-2/3 text-right md:text-left">
-                        <h3 class="text-3xl font-serif text-navy-900 mb-4 group-hover:text-gold transition-colors">Outdoor Kitchens & Living</h3>
-                        <p class="text-gray-600 mb-6 max-w-xl ml-auto md:ml-0">Extend your home's luxury outdoors. We build fully equipped kitchens, fire pits, and pergolas designed for Houston's climate.</p>
-                        <ul class="flex space-x-4 text-sm text-gray-500 uppercase tracking-widest justify-end md:justify-start">
-                            <li class="flex items-center"><i class="ph-fill ph-check-circle text-gold mr-2"></i> Grilling Stations</li>
-                            <li class="flex items-center"><i class="ph-fill ph-check-circle text-gold mr-2"></i> Fire Features</li>
-                            <li class="flex items-center"><i class="ph-fill ph-check-circle text-gold mr-2"></i> Shade Structures</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- High-End CTA -->
-    <section class="relative py-32 bg-cta-pattern bg-cover bg-fixed bg-center">
-        <div class="absolute inset-0 bg-navy-900/80"></div>
-        <div class="relative z-10 container mx-auto px-6 text-center reveal-text">
-            <h2 class="text-4xl md:text-6xl font-serif text-white mb-6">Your Dream Backyard Starts Here.</h2>
-            <p class="text-gray-300 text-lg mb-10 max-w-2xl mx-auto font-light">Schedule your private design consultation today and experience the Advent standard.</p>
-            <a href="#contact" class="inline-block bg-gold text-white px-10 py-4 rounded-sm uppercase tracking-widest text-sm font-semibold hover:bg-white hover:text-navy-900 transition-all duration-300 shadow-lg shadow-gold/20">
-                Start Your Project
-            </a>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-white">
-        <div class="container mx-auto px-6 md:px-12">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                <!-- Info -->
-                <div class="reveal-text">
-                    <span class="text-gold uppercase tracking-[0.2em] text-sm font-semibold">Get In Touch</span>
-                    <h2 class="text-4xl md:text-5xl font-serif text-navy-900 mt-4 mb-8">Let's Build Something Extraordinary.</h2>
-                    
-                    <div class="space-y-8 mt-12">
-                        <div class="flex items-start space-x-4">
-                            <i class="ph-fill ph-map-pin text-2xl text-gold"></i>
-                            <div>
-                                <h4 class="text-lg font-serif text-navy-900">Visit Our Studio</h4>
-                                <p class="text-gray-500">Houston, Texas 77005<br>(By Appointment Only)</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <i class="ph-fill ph-phone text-2xl text-gold"></i>
-                            <div>
-                                <h4 class="text-lg font-serif text-navy-900">Call Us</h4>
-                                <p class="text-gray-500">(713) 555-0123</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <i class="ph-fill ph-envelope text-2xl text-gold"></i>
-                            <div>
-                                <h4 class="text-lg font-serif text-navy-900">Email Us</h4>
-                                <p class="text-gray-500">design@adventhomes.com</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Embedded Map Placeholder -->
-                    <div class="mt-12 h-64 bg-gray-100 w-full rounded-lg overflow-hidden relative">
-                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110676.37265308366!2d-95.5411683672597!3d29.73558982709729!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640bf5925837a3b%3A0x823408682e81440e!2sHouston%2C%20TX!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                </div>
-
-                <!-- Form -->
-                <div class="bg-gray-50 p-8 md:p-12 rounded-2xl reveal-text">
-                    <h3 class="text-2xl font-serif text-navy-900 mb-6">Request Consultation</h3>
-                    <form class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">First Name</label>
-                                <input type="text" class="w-full bg-white border border-gray-200 p-3 focus:border-gold focus:outline-none transition-colors">
-                            </div>
-                            <div>
-                                <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Last Name</label>
-                                <input type="text" class="w-full bg-white border border-gray-200 p-3 focus:border-gold focus:outline-none transition-colors">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Email Address</label>
-                            <input type="email" class="w-full bg-white border border-gray-200 p-3 focus:border-gold focus:outline-none transition-colors">
-                        </div>
-                        <div>
-                            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Project Details</label>
-                            <textarea rows="4" class="w-full bg-white border border-gray-200 p-3 focus:border-gold focus:outline-none transition-colors"></textarea>
-                        </div>
-                        <button type="button" class="w-full bg-navy-900 text-white font-medium py-4 rounded hover:bg-gold transition-colors duration-300 uppercase tracking-widest text-sm">
-                            Send Message
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-navy-900 text-white pt-20 pb-10 border-t border-white/10">
-        <div class="container mx-auto px-6 md:px-12">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div class="col-span-1 md:col-span-1">
-                    <a href="#" class="text-2xl font-serif font-bold tracking-widest text-white">
-                        ADVENT<span class="text-gold">.</span>
-                    </a>
-                    <p class="mt-6 text-gray-400 text-sm leading-relaxed">
-                        Redefining luxury outdoor living in Houston. Precision, elegance, and timeless design.
-                    </p>
-                </div>
-                <div>
-                    <h4 class="text-gold uppercase tracking-widest text-xs font-semibold mb-6">Navigation</h4>
-                    <ul class="space-y-4 text-sm text-gray-300">
-                        <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
-                        <li><a href="#services" class="hover:text-white transition-colors">Services</a></li>
-                        <li><a href="#portfolio" class="hover:text-white transition-colors">Portfolio</a></li>
-                        <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-gold uppercase tracking-widest text-xs font-semibold mb-6">Services</h4>
-                    <ul class="space-y-4 text-sm text-gray-300">
-                        <li>Custom Pools</li>
-                        <li>Outdoor Kitchens</li>
-                        <li>Spas & Water Features</li>
-                        <li>Renovations</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-gold uppercase tracking-widest text-xs font-semibold mb-6">Follow Us</h4>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-gold hover:border-gold transition-all">
-                            <i class="ph-fill ph-instagram-logo"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-gold hover:border-gold transition-all">
-                            <i class="ph-fill ph-facebook-logo"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-gold hover:border-gold transition-all">
-                            <i class="ph-fill ph-pinterest-logo"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 uppercase tracking-widest">
-                <p>&copy; 2023 Advent Homes. All Rights Reserved.</p>
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-white">Privacy Policy</a>
-                    <a href="#" class="hover:text-white">Terms of Service</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script>
-        // 1. Navbar Scroll Effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-navy-900/95', 'backdrop-blur-md', 'shadow-lg', 'py-4');
-                navbar.classList.remove('py-6');
-            } else {
-                navbar.classList.remove('bg-navy-900/95', 'backdrop-blur-md', 'shadow-lg', 'py-4');
-                navbar.classList.add('py-6');
-            }
-        });
-
-        // 2. Mobile Menu Toggle
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-        let isMenuOpen = false;
-
-        menuBtn.addEventListener('click', () => {
-            isMenuOpen = !isMenuOpen;
-            if (isMenuOpen) {
-                mobileMenu.classList.remove('translate-x-full');
-                menuBtn.innerHTML = '<i class="ph ph-x text-3xl"></i>';
-            } else {
-                mobileMenu.classList.add('translate-x-full');
-                menuBtn.innerHTML = '<i class="ph ph-list text-3xl"></i>';
-            }
-        });
-
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                isMenuOpen = false;
-                mobileMenu.classList.add('translate-x-full');
-                menuBtn.innerHTML = '<i class="ph ph-list text-3xl"></i>';
-            });
-        });
-
-        // 3. Typing Animation
-        const textElement = document.getElementById('typing-text');
-        const phrases = ["Luxury Custom Pools in Houston", "Designed. Engineered. Perfected."];
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        let typeSpeed = 100;
-
-        function type() {
-            const currentPhrase = phrases[phraseIndex];
-            
-            if (isDeleting) {
-                textElement.textContent = currentPhrase.substring(0, charIndex - 1);
-                charIndex--;
-                typeSpeed = 50; 
-            } else {
-                textElement.textContent = currentPhrase.substring(0, charIndex + 1);
-                charIndex++;
-                typeSpeed = 100;
-            }
-
-            if (!isDeleting && charIndex === currentPhrase.length) {
-                isDeleting = true;
-                typeSpeed = 2000; // Pause at end
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                typeSpeed = 500; // Pause before new word
-            }
-
-            setTimeout(type, typeSpeed);
-        }
-
-        document.addEventListener('DOMContentLoaded', type);
-
-        // 4. Scroll Reveal Animation (Intersection Observer)
-        const revealElements = document.querySelectorAll('.reveal-text');
-
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target); // Only animate once
-                }
-            });
-        }, {
-            threshold: 0.15,
-            rootMargin: "0px 0px -50px 0px"
-        });
-
-        revealElements.forEach(el => revealObserver.observe(el));
-
-    </script>
+  <script src="script.js"></script>
 </body>
 </html>
-
